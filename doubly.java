@@ -52,28 +52,7 @@ public class doubly
             System.out.print(temp.data+"->");
             temp = temp.next;
         }
-    }
-    public void reversell()
-    {
-        if(head==null)
-        {
-            System.out.print("No data");
-            return;
-        }
-        Node curr=head;
-        Node prev = null;
-        Node next;
-        while(curr!=null)
-        {
-            next = curr.next;
-            curr.next = prev;
-            curr.prev = next;
-            prev=curr;
-            curr=next;
-        }
-        head = prev;
-        
-    }
+    }}
     public static void main(String args[])
     {
         doubly ll = new doubly();
@@ -82,7 +61,6 @@ public class doubly
         ll.addlast(3);
         ll.addlast(4);
         ll.addfirst(9);
-        ll.reversell();
         ll.printll();
     }
 }
