@@ -1,0 +1,95 @@
+public class Main 
+{
+    public static boolean issafe(int sudoku[][],int row,int col,int digit)
+    {
+        for(int i=0,j=0;i<9&&j<9;i++,j++)
+        {
+            if(sudoku[row][i]==digit)
+            {
+                return false;
+            }
+            if(sudoku[j][col]==digit)
+            {
+                return false;
+            }
+            
+        }
+      int sc = (col/3)*3;
+      int sr = (row/3)*3;
+        for(int i=sr;i<sr+3;i++)
+        {
+            for(int j=sc;j<sc+3;j++)
+            {
+                if(sudoku[i][j]==digit)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public static boolean sudoku_sol(int sudoku[][],int row,int col)
+    {
+        if(row==9)
+        {
+            return true;
+        }
+        int newrow  = row,newcol = col+1;
+        if(col+1==9)
+        {
+            newrow = row+1;
+            newcol=0;
+        }
+        if(sudoku[row][col]!=0)
+        {
+            return sudoku_sol(sudoku,newrow,newcol);
+        }
+        for(int digit = 1;digit<=9;digit++)
+        {
+            if(issafe(sudoku,row,col,digit))
+            {
+                sudoku[row][col]=digit;
+                if(sudoku_sol(sudoku,newrow,newcol))
+                {
+                    return true;
+                }
+                sudoku[row][col]=0;
+            }
+        }
+        return false;
+    }
+    public static void printsud(int sudoku[][])
+    {
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                System.out.print(sudoku[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String args[])
+    {
+        int sudoku[][] = 
+            {{5, 3, 0, 0, 7, 0, 0, 0, 0},
+            {6, 0, 0, 1, 9, 5, 0, 0, 0},
+            {0, 9, 8, 0, 0, 0, 0, 6, 0},
+            {8, 0, 0, 0, 6, 0, 0, 0, 3},
+            {4, 0, 0, 8, 0, 3, 0, 0, 1},
+            {7, 0, 0, 0, 2, 0, 0, 0, 6},
+            {0, 6, 0, 0, 0, 0, 2, 8, 0},
+            {0, 0, 0, 4, 1, 9, 0, 0, 5},
+            {0, 0, 0, 0, 8, 0, 0, 7, 9}};
+            if(sudoku_sol(sudoku,0,0))
+            {
+                System.out.println("Solution exist");
+                printsud(sudoku);
+            }
+            else
+            {
+                System.out.print("Suduko dont exist");
+            }
+
+    }
+}
