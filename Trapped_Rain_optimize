@@ -18,10 +18,9 @@ class Solution {
                { r--;
                rMax = Math.max(rMax, height[r]); 
                res += rMax - height[r]; 
-               } 
-           
+               }         
        }
        return res;
      }
-}   
+}  
   
