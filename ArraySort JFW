@@ -1,0 +1,12 @@
+import java.util.Arrays;   // PASS THIS Arrays TO USE Arrays.sort FUNYTION FOR DIRECT SORTING 
+public class Main{
+    public static void main(String args[])
+    {
+        int arr[] = {5,1,2,4,8,3};
+        Arrays.sort(arr,0,3);    // THIS IS THE KEY LINE USED...FOR SORTING 
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
