@@ -1,0 +1,30 @@
+public class Main 
+{
+    public static void Compress(String str)
+    {
+        StringBuilder newstr = new StringBuilder("");
+        int n = str.length()-1;
+        for(int i=0;i<n;i++)
+        {
+            char ch = str.charAt(i);
+            Integer count =1;
+            while(i<n && str.charAt(i)==str.charAt(i+1))
+            {
+                count++;
+                i++;
+            }
+            newstr=newstr.append(ch);
+            if(i>1)
+            {
+                newstr.append(count);
+            }
+        }
+        System.out.println(newstr);
+    }
+      public static void main(String args[])
+    {
+        String str = "aaabbbbbccd";
+        Compress(str);
+    }
+}
+
