@@ -1,0 +1,32 @@
+import java.util.Arrays;
+public class Main 
+{
+    public static void anagram(String str,String str1)
+    {
+    
+        str = str.toUpperCase();
+        str1 = str1.toUpperCase();
+        if(str.length()==str1.length())
+        {  
+            char[] s = str.toCharArray();
+            char[] s1 = str1.toCharArray();
+            Arrays.sort(s);
+            Arrays.sort(s1);
+            boolean ch = (Arrays.equals(s,s1));
+            if(ch)
+            {
+                System.out.print("true");
+            }
+            else
+            System.out.println("false");
+        }
+        else 
+        System.out.println("mafdafrer");
+    }
+    public static void main(String args[])
+    {
+        String str = "easth";
+        String str1 = "heart";
+        anagram(str,str1);
+    }
+}
