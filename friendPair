@@ -16,7 +16,6 @@ public class Main
 }
 
 
-
 2nd method non recursive way:
  public static int friendpair(int n)
     {
