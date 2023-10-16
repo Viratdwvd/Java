@@ -1,0 +1,31 @@
+public class Main 
+{
+    public static int friendpair(int n)
+    {
+        if(n==1 || n==2)
+        {
+            return n;
+        }
+        return friendpair(n-1)+(n-1)*friendpair(n-2);
+    }
+    
+    public static void main(String args[])
+    {
+        System.out.print(friendpair(3));
+    }
+}
+
+
+
+2nd method non recursive way:
+ public static int friendpair(int n)
+    {
+        if(n==1 || n==2)
+        {
+            return n;
+        }
+        int frnd1 = friendpair(n-1);
+        int frnd2 = friendpair(n-2);
+        int pair = (n-1) * frnd2;
+        int total = frnd1 + pair;
+    }  
