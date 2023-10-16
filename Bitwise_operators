@@ -1,0 +1,19 @@
+public class Main 
+{
+    public static void main(String args[])
+    { 
+        int a = 4;             //swapping without variable
+        int b =42;
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        System.out.print(a+" "+b);
+        for(char ch='A';ch<='Z';ch++)      // ch|' '  uppercase to lower case
+        {
+            System.out.print((char)(ch|' '));
+        }
+        int x = 31;     //~increase value by one
+        x=-~x;
+        System.out.print(x);
+    }
+}
