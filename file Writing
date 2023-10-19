@@ -1,0 +1,34 @@
+import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+public class FileWriting
+{
+    public static void main(String args[])
+    {
+        File ff = new File("/home/student/Music/FileWriter1.txt");
+        boolean present = ff.exists();
+        if(present == false)
+        try{
+            boolean created = ff.createNewFile();
+            System.out.println("File Created : "+created);
+            FileWriter Writer = new FileWriter(ff);
+            Writer.write(65);
+            Writer.write(" \n How are you");
+
+            Writer.flush();
+            Writer.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+
+///////////////////////////
+
+/*
+OUTPUT :
+student@AB1313SCOPE-A23:~/Music$ javac FileWriting.java
+student@AB1313SCOPE-A23:~/Music$ java FileWriting
+File Created : true
+student@AB1313SCOPE-A23:~/Music$ 
+*/
