@@ -1,0 +1,59 @@
+public class Main
+{
+    public static void rect(int l,int b)
+    {
+       for(int i=1;i<=l;i++)
+       {
+           for(int j=1;j<=b;j++)
+           {
+               if(i==1||i==l||j==1||j==b)
+               System.out.print("* ");
+               else{
+                   System.out.print("  ");
+               }
+           }
+           System.out.println("");
+       }
+    }
+    public static void rhombus(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=2*(n-i);j++)          //2(n-i) is used for reverse printing
+            {
+                System.out.print(" ");
+            }
+            for(int j=1;j<=n;j++)
+            {
+                System.out.print("*");
+            }
+        System.out.println("");
+        }
+    }
+    public static void holrho(int l,int b)
+    {
+       for(int i=1;i<=l;i++)
+       {
+           for(int j=1;j<=(l-i);j++)
+               {
+                  System.out.print(" "); 
+               }
+        for(int j=1;j<=l;j++)
+          {
+               if(i==1||i==l||j==1||j==b)
+               {System.out.print("*");}
+               else
+               {
+                   System.out.print(" ");
+               }
+          }
+       System.out.println("");
+       }  
+    }
+	public static void main(String[] args) 
+	{
+	  //  rect(4,15);
+	   // rhombus(5);
+	    holrho(5,5);
+	}
+}
