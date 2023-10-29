@@ -1,0 +1,38 @@
+ public void palindrom()
+    {
+        Node temp = head;
+        ArrayList<Integer> arr = new ArrayList<>();
+        int sz=0;
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(2);
+        linkedList.add(1);
+        System.out.println();
+        System.out.println("linklist wale"+linkedList);
+        for(Integer k :linkedList )
+        {
+            arr.add(k);
+        }
+        System.out.println("Arraylist vale "+arr);
+        int left = 0;
+        int right =4 - 1;
+
+        // Check if the ArrayList is a palindrome
+        boolean isPalindrome = true;
+        while (left < right) {
+            if (!arr.get(left).equals(arr.get(right))) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        // Output the result
+        if (isPalindrome) {
+            System.out.println("The LinkedList is a palindrome.");
+        } else {
+            System.out.println("The LinkedList is not a palindrome.");
+        }
+    }
