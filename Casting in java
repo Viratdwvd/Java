@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+   Scanner t=new Scanner(System.in);
+   int a=t.nextInt();
+    double b=(int)a;
+Scanner y=new Scanner(System.in);
+    double my=y.nextDouble();
+    int you=(int)my; 
+Scanner w=new Scanner(System.in);
+    byte p=w.nextByte();
+    short val=(byte)p;
+Scanner n=new Scanner(System.in);
+    char q=n.next().charAt(0);
+    int m=(int)q;
+    System.out.println(m);
+   System.out.println(val);
+    System.out.println(b); 
+   System.out.println(you);
+      
+    }
+    
+}
+	
