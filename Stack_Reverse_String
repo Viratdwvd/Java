@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main
+{
+    public static String  reverseString(String str)    // we used String
+    {
+        Stack <Character> s = new Stack<>();
+        int idx =0;
+        while(idx<str.length())
+        {
+            s.push(str.charAt(idx));
+            idx++;
+        }
+        StringBuilder Rstr = new StringBuilder("");
+        while(!s.isEmpty())
+        {
+            char curr = s.pop();
+            Rstr.append(curr);
+        }
+        str = Rstr.toString();            //StringBuilder to String type
+        return str;                       
+    } 
+    public static void main(String args[])
+    {
+        String str = "VIRAT";
+        String result = reverseString(str);
+        System.out.print(result);
+    }
+}
