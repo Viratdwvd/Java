@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main
+{
+    // This code is for activity selection when there is end time sorted already..
+	public static void main(String[] args) 
+	{
+	    int st[] = {1,3,0,5,8,5};
+	    int ed[] = {2,4,6,7,9,9};
+	    
+	    int maxact = 0;
+	    ArrayList<Integer> ans = new ArrayList<>();
+	    maxact = 1;
+	    ans.add(0);
+	    int lastend = ed[0];
+	    for(int i=1;i<ed.length;i++)
+	    {
+	        if(st[i]>=lastend)
+	        {
+	            maxact++;
+	            ans.add(i);
+	            lastend = ed[i];
+	        }
+	    }
+	    System.out.println("Max Activities = "+maxact );
+	    for(int i=0;i<ans.size();i++)
+	    {
+	        System.out.print("A"+ans.get(i)+" ");
+	    }
+	}
+}
