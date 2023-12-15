@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Integer coins[] = {2000,500,100,50,20,10,5,2,1};
+	    Arrays.sort(coins,Comparator.reverseOrder());
+	    
+	    int countofcoins=0;
+	    int amt = 500;
+	    ArrayList<Integer> ans = new ArrayList<>();
+	    for(int i=0;i<coins.length;i++)
+	    {
+	        if(coins[i]<=amt)
+	         {
+	             while(coins[i]<=amt)
+	             {
+	                 countofcoins++;
+	                 ans.add(coins[i]);
+	                 amt-=coins[i];
+	             }
+	         }
+	    }
+	    System.out.println("Total coins required "+countofcoins);
+	    for(int i=0;i<ans.size();i++)
+	    {
+	        System.out.print(ans.get(i)+" ");
+	    }
+	}
+}
