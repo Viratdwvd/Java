@@ -1,0 +1,84 @@
+import java.util.*;
+public class Main
+{
+    static class Heap
+    {
+        ArrayList<Integer> arr = new ArrayList<>();
+        
+        // INSERTION IN HEAP 
+        public void add(int data)
+        {
+            arr.add(data);
+            int x = arr.size()-1;
+            int par = (x-1)/2;
+            while(arr.get(x) > arr.get(par))
+            {
+                int temp = arr.get(x);
+                arr.set(x,arr.get(par));
+                arr.set(par,temp);
+                x=par;
+                par = (x-1)/2;
+            }
+        } 
+        public int peek()
+        {
+            return arr.get(0);
+        }
+        private void heapify(int i)
+        {
+            int left = 2*i+1;
+            int right = 2*i+2;
+            int maxIdx = i;
+              //                          max index value more than left index 
+            if(left < arr.size() && arr.get(maxIdx) < arr.get(left))
+            {
+                maxIdx = left;
+            }
+            if(right < arr.size() && arr.get(maxIdx)< arr.get(right))
+            {
+                maxIdx = right; 
+            }
+            // if after removal max value  changers
+            if(maxIdx!=i)
+            {  //swap
+                int temp = arr.get(i);
+                arr.set(i,arr.get(maxIdx));
+                arr.set(maxIdx,temp);
+                heapify(maxIdx);    // to check other nodes dont get affected
+            }
+         
+        } 
+        public boolean isEmpty()
+           {
+               return arr.size()==0;
+           }
+        public int remove()
+        {
+            int data = arr.get(0);
+            int temp = arr.get(0);
+            //step 1 swap first and last node values 
+            arr.set(0,arr.get(arr.size()-1));
+            arr.set(arr.size()-1,temp);
+            //step 2 delete last 
+            arr.remove(arr.size()-1);
+            //stemp 3 call heapify to check order and heap validity 
+            heapify(0);
+            return data;
+        }
+    }
+    
+ 
+	public static void main(String[] args) 
+	{
+	   Heap h=new Heap();
+	    h.add(3);
+	    h.add(4);
+	    h.add(1);
+	    h.add(5);
+	    while(!h.isEmpty())
+	    {
+	        System.out.println("MmaxIdx heap-> "+h.peek());
+	        h.remove();
+	    }
+	}
+}
