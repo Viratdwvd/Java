@@ -1,0 +1,31 @@
+import java.util.PriorityQueue;
+public class Main{
+static class Student implements Comparable<Student> 
+{           //Override
+    String name;
+    int rank;
+    public Student(String name,int rank)
+    {
+        this.name=name;
+        this.rank=rank;
+    }
+    @Override
+    public int compareto(Student s2)
+    {
+        return this.rank-s2.rank;
+    }
+}
+public static void main(String args[])
+{
+    PriorityQueue<Student> pd = new PriorityQueue<>(Comparator.reverseOrder());
+    pd.add(new Student(name:"A",rank:4));
+    pd.add(new Student(name:"B",rank:2));
+    pd.add(new Student(name:"Ap",rank:1));
+    pd.add(new Student(name:"Bl",rank:12));
+    while(!pd.isEmpty())
+    {
+        System.out.print(pd.peek().name+"->"+pd.peek().rank);
+        pd.remove();
+    }
+}
+}
